@@ -1,12 +1,4 @@
-
-<h2 class="sr-only">Download updated Ophir index.html with logos and auth fix</h2>
-<div style="padding:2rem 0;text-align:center">
-  <p style="font-family:var(--font-sans);font-size:14px;color:var(--text-secondary);margin-bottom:1.5rem">Version 2 — real logos, auth screen fixed</p>
-  <button onclick="download()" style="background:var(--fill-primary);color:var(--on-primary);border:none;padding:12px 32px;border-radius:var(--radius);font-size:15px;cursor:pointer;font-family:var(--font-sans)">Download index.html v2</button>
-</div>
-<script>
-function download() {
-  const html = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -482,8 +474,11 @@ async function runScenario(type,magnitude){
   if(r.ok&&r.data.data?.scenario){
     const s=r.data.data.scenario;
     const keys=Object.keys(s).filter(k=>k!=='scenario');
-    const msg=keys.map(k=>k.replace(/([A-Z])/g,' $1').trim()+': '+fmtK(s[k])).join('\n');
-    alert(s.scenario+'\n\n'+msg);
+    const msg=keys.map(k=>k.replace(/([A-Z])/g,' $1').trim()+': '+fmtK(s[k])).join('
+');
+    alert(s.scenario+'
+
+'+msg);
   }
 }
 
@@ -545,13 +540,6 @@ function updateProfile(){
 }
 
 checkAuth();
-<\/script>
-</body>
-</html>`;
-  const blob=new Blob([html],{type:'text/html'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='index.html';
-  a.click();
-}
 </script>
+</body>
+</html>
